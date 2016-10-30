@@ -3,8 +3,7 @@
 header('Content-Type: application/json');
 ////set default return variable
 $json='{"ok":false}';
-////check if data is setecho json_encode($_POST);exit();
-    
+
 ////XXXXXXXXXXXXXXXXXXXXX must be replaced with your api key. This is generated in your superuser settings.
     
 ////Penguin Server

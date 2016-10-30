@@ -1,0 +1,22 @@
+<script>
+//just some variables.
+e={something:1};
+//the data to send
+e.data={
+    note:{text:'test',title:'test',type:'success'},
+};
+//optional log addition
+if(e.something===1){
+    e.data.log={c:99,text:'some stuff',custom:'1234567'};
+}
+//send off the data
+$.post(
+        'http://free.api.unmetered.chat/XXXXXXXXXXXXXXXXXXXXX/logs',//example URL
+        {
+            data:JSON.stringify(e.data)//multi-level POST requires stringify to maintain structure.
+        },
+        function(d){
+            console.log(d)
+        }
+)//end of post
+</script>
