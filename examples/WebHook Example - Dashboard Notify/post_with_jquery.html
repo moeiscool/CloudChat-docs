@@ -11,7 +11,7 @@ if(e.something===1){
 }
 //send off the data
 $.post(
-        'http://mywebsite.unmetered.chat/webhook_server_side.php',//example URL
+        'http://mywebsite.unmetered.chat/server_side.php?cmd=data',//example URL
         {
             data:JSON.stringify(e.data)//multi-level POST requires stringify to maintain structure.
         },
