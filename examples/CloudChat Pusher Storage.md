@@ -11,19 +11,17 @@ $.CloudChat.fn=function(){
 ```
 
 
-The variables that are recieved through this function appear like this.
-
-```
-{stor:{key:'',value:''}}
-```
-
-
 Here is how to `get` a variable by using the `$.CloudChat.data` function.
 
 ```
 $.CloudChat.data({stor:{get:'muffins'}})
 ```
 
+The variables that are recieved through this function appear like this.
+
+```
+{stor:{key:'',value:''}}
+```
 
 Here is how to `save` a variable using the `$.CloudChat.data` function. *Let's save the current time.* By putting `/time` as the `value ` the server will set the current time on the server side.
 
