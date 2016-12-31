@@ -1,7 +1,8 @@
 # Push Storage Feature
 
-The function that CloudChat uses for recieving push messages is as follows.
 
+
+The function that CloudChat uses for recieving push messages is as follows.
 
 ```
 $.CloudChat.fn=function(){
@@ -17,14 +18,14 @@ The variables that are recieved through this function appear like this.
 ```
 
 
-Here is how to get a variable through the `$.CloudChat.fn` function.
+Here is how to get a variable by using the `$.CloudChat.data` function.
 
 ```
 $.CloudChat.data({stor:{get:'page_dsl'}})
 ```
 
 
-Here is how to save a variable. *Let's save the current time.* By putting `/time` as the `value ` the server will set the current time on the server side.
+Here is how to save a variable using the `$.CloudChat.data` function. *Let's save the current time.* By putting `/time` as the `value ` the server will set the current time on the server side.
 
 ```
 $.CloudChat.data({stor:{put:'page_dsl',value:'/time'}})
@@ -37,7 +38,7 @@ But you may put any variable here. *Maximum length is 600 characters.*
 $.CloudChat.data({stor:{put:'page_dsl',value:'a new variable changed based on user login or something.'}})
 ```
 
-When you send data you will get a response on the master pusher function `$.CloudChat.fn`.
+When you send data you will get a response on the master pusher recieving function mentioned in the first block `$.CloudChat.fn`.
 
 ```
 {hook:{stor:...}}
@@ -52,6 +53,9 @@ var CloudChatFN=setInterval(function(){
     if($.CloudChat&&$.CloudChat.ao){
         //stop the checker.
         clearInterval(CloudChatFN);
+        
+        
+        
         //function that is called when recieving a message.
         $.CloudChat.fn=function(d){
             
@@ -73,6 +77,8 @@ var CloudChatFN=setInterval(function(){
             }
             console.log(d);
         }
+        //
+
     }
 },1000);
 ```
