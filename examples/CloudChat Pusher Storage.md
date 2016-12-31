@@ -18,24 +18,24 @@ The variables that are recieved through this function appear like this.
 ```
 
 
-Here is how to get a variable by using the `$.CloudChat.data` function.
+Here is how to `get` a variable by using the `$.CloudChat.data` function.
 
 ```
-$.CloudChat.data({stor:{get:'page_dsl'}})
+$.CloudChat.data({stor:{get:'muffins'}})
 ```
 
 
-Here is how to save a variable using the `$.CloudChat.data` function. *Let's save the current time.* By putting `/time` as the `value ` the server will set the current time on the server side.
+Here is how to `save` a variable using the `$.CloudChat.data` function. *Let's save the current time.* By putting `/time` as the `value ` the server will set the current time on the server side.
 
 ```
-$.CloudChat.data({stor:{put:'page_dsl',value:'/time'}})
+$.CloudChat.data({stor:{put:'muffins',value:'/time'}})
 ```
 
 
 But you may put any variable here. *Maximum length is 600 characters.*
 
 ```
-$.CloudChat.data({stor:{put:'page_dsl',value:'a new variable changed based on user login or something.'}})
+$.CloudChat.data({stor:{put:'muffins',value:'a new variable changed based on user login or something.'}})
 ```
 
 When you send data you will get a response on the master pusher recieving function mentioned in the first block `$.CloudChat.fn`.
@@ -61,24 +61,31 @@ var CloudChatFN=setInterval(function(){
             
             if(d.stor&&d.stor.key&&d.stor.value){
                 switch(d.stor.key){
-                    case'page_dsl':
-                        $('[viewed="page_dsl"] .livestamp').livestamp('destroy').livestamp(d.stor.value);
+                    case'muffins':
+                        $('[viewed="muffins"] .livestamp').livestamp('destroy').livestamp(d.stor.value);
                     break;
                 }
             }
             if(d.hook){
                 if(d.hook.stor&&d.hook.stor.put){
                     switch(d.hook.stor.put){
-                        case'page_dsl':
-                            $('[viewed="page_dsl"] .livestamp').livestamp('destroy').livestamp(new Date);
+                        case'muffins':
+                            $('[viewed="muffins"] .livestamp').livestamp('destroy').livestamp(new Date);
                         break;
                     }
                 }
             }
-            console.log(d);
+////uncomment the next line to see what is coming in as it comes in.
+//            console.log(d);
         }
         //
 
     }
 },1000);
+```
+
+Yes. You can do `get` and `put` in on request.
+
+```
+$.CloudChat.data({stor:{get:'cheescake',put:'muffins',value:'/time'}})
 ```
