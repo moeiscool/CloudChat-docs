@@ -1,6 +1,8 @@
 # Push Storage Feature
 
+** In JavaScript **
 
+*These code examples only work if CloudChat is already loaded. This issue will be resolved in the next update.*
 
 The function that CloudChat uses for recieving push messages is as follows.
 
