@@ -44,3 +44,29 @@ var CloudChatFN=setInterval(function(){
     }
 },1000);
 ```
+
+
+**PHP**
+
+```
+<?php
+//set return type as JSON string
+header('Content-Type: application/json');
+//set default return variable
+$json='{"ok":false}';
+
+    $url = "https://socket.unmetered.chat:8443/api/[KEY]/push/[CHANNEL]";
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_POST,count($fields));
+    curl_setopt($curl, CURLOPT_POSTFIELDS,$fields);
+    curl_setopt($curl, CURLOPT_CONNECTTIMEOUT ,10000); 
+    curl_setopt($curl, CURLOPT_TIMEOUT, 400);
+    $json = curl_exec($curl);
+    $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+    
+echo $json;
+?>
+```
